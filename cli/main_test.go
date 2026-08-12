@@ -6,7 +6,8 @@ import (
 )
 
 func TestReadDir(t *testing.T) {
-	files := readDir()
+	dir := "."
+	files := readDir(dir)
 	mf := "Makefile"
 
 	if !slices.Contains(files, mf) {

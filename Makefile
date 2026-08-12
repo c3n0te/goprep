@@ -5,3 +5,7 @@ server:
 .PHONY: cli
 cli:
 	go build -race -ldflags "-s -w" -o ./bin ./cli
+
+.PHONY: thread
+thread:
+	go build -race -ldflags "-s -w" -o ./bin ./thread

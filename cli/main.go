@@ -13,8 +13,7 @@ func parseArgs() string {
 	return *first
 }
 
-func readDir() []string {
-	dir := parseArgs()
+func readDir(dir string) []string {
 	entries, err := os.ReadDir(dir)
 	if err != nil {
 		slog.Error("Failed to read directory", "error", err)
@@ -30,7 +29,8 @@ func readDir() []string {
 }
 
 func main() {
-	files := readDir()
+	dir := parseArgs()
+	files := readDir(dir)
 	for _, fname := range files {
 		fmt.Println(fname)
 	}
