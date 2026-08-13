@@ -11,7 +11,7 @@ func helloWorld() string {
 	return "hello world"
 }
 
-func downloadImage(url string, fname string, ch chan<- string, idx int) {
+func downloadImage(url string, fname string, ch chan<- string) {
 	resp, err := http.Get(url)
 	if err != nil {
 		ch <- "Error querying image url"
@@ -50,7 +50,7 @@ func main() {
 
 	ch := make(chan string)
 	for i, url := range urls {
-		go downloadImage(url, fmt.Sprintf("./data/downloaded_image_%v.svg", i), ch, i)
+		go downloadImage(url, fmt.Sprintf("./data/downloaded_image_%v.svg", i), ch)
 	}
 
 	for range urls {

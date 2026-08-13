@@ -9,3 +9,15 @@ cli:
 .PHONY: thread
 thread:
 	go build -race -ldflags "-s -w" -o ./bin ./thread
+
+.PHONY: scrape
+scrape:
+	go build -race -ldflags "-s -w" -o ./bin ./scrape
+
+.PHONY: url
+url:
+	go build -race -ldflags "-s -w" -o ./bin ./url
+
+.PHONY: cipher
+cipher:
+	go build -race -ldflags "-s -w" -o ./bin ./cipher
